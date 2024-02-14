@@ -28,22 +28,22 @@ handler = Mangum(app)
 
 
 @app.get("/")
-async def root():
+def root():
     return {"message": "Welcome to my bookstore app!"}
 
 
 @app.get("/random-book")
-async def random_book():
+def random_book():
     return random.choice(BOOKS)
 
 
 @app.get("/list-books")
-async def list_books():
+def list_books():
     return {"books": BOOKS}
 
 
 @app.get("/book_by_index/{index}")
-async def book_by_index(index: int):
+def book_by_index(index: int):
     if index < len(BOOKS):
         return BOOKS[index]
     else:
@@ -51,7 +51,7 @@ async def book_by_index(index: int):
 
 
 @app.post("/add-book")
-async def add_book(book: Book):
+def add_book(book: Book):
     book.book_id = uuid4().hex
     json_book = jsonable_encoder(book)
     BOOKS.append(json_book)
@@ -63,7 +63,7 @@ async def add_book(book: Book):
 
 
 @app.get("/get-book")
-async def get_book(book_id: str):
+def get_book(book_id: str):
     for book in BOOKS:
         if book.book_id == book_id:
             return book
