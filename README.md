@@ -86,3 +86,12 @@ Now add our FastAPI file and the JSON file.
 zip lambda_function.zip -u main.py
 zip lambda_function.zip -u books.json
 ```
+
+
+
+#### To run the APP
+
+```bash
+docker build . --build-arg="GITHUB_TOKEN=$GITHUB_TOKEN" -t fastapi-tutorial
+docker run -p 80:80 fastapi-tutorial
+```

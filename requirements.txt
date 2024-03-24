@@ -2,3 +2,4 @@ fastapi
 uvicorn
 mangum
 gunicorn
+py_demo_package @ git+https://github.com/OptimumPartners/py-demo-package@191c408685183272f913733dcea4b90c8289cd9a#egg=py-demo-package
